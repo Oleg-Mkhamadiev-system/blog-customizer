@@ -8,10 +8,16 @@ import {
 	defaultArticleState,
 	OptionType,
 	fontFamilyOptions,
+	fontSizeOptions,
+	fontColors,
+	backgroundColors,
+	contentWidthArr,
 } from 'src/constants/articleProps';
 import { Text } from '../text';
 import clsx from 'clsx';
 import { Select } from '../select';
+import { RadioGroup } from '../radio-group';
+import { Separator } from '../separator';
 
 export type IArticleParamsForm = {
 	setAppState: (value: ArticleStateType) => void;
@@ -64,6 +70,32 @@ export const ArticleParamsForm = (props: IArticleParamsForm) => {
 						selected={form.fontFamilyOption}
 						options={fontFamilyOptions}
 						onChange={fieldChange('fontFamilyOption')}
+					/>
+					<RadioGroup
+						title='Размер шрифта'
+						name='fontSizeOption'
+						selected={form.fontSizeOption}
+						options={fontSizeOptions}
+						onChange={fieldChange('fontSizeOption')}
+					/>
+					<Select
+						title='Цвет шрифта'
+						selected={form.fontColor}
+						options={fontColors}
+						onChange={fieldChange('fontColor')}
+					/>
+					<Separator />
+					<Select
+						title='Цвет фона'
+						selected={form.backgroundColor}
+						options={backgroundColors}
+						onChange={fieldChange('backgroundColor')}
+					/>
+					<Select
+						title='Ширина контента'
+						selected={form.contentWidth}
+						options={contentWidthArr}
+						onChange={fieldChange('contentWidth')}
 					/>
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' type='reset' />
