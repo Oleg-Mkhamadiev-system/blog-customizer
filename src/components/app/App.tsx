@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import styles from './App.module.scss';
 
 import { Article } from '../article';
@@ -17,7 +15,7 @@ export const App = () => {
 
 	return (
 		<div
-			className={clsx(styles.main)}
+			className={styles.main}
 			style={
 				{
 					'--font-family': appState.fontFamilyOption.value,
